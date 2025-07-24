@@ -1,8 +1,4 @@
-Here’s a **professional README.md** for your Healthcare Backend project ✅
-
----
-
-# 🏥 Healthcare Backend API
+# Healthcare Backend API
 
 A **Healthcare Backend System** built with **Django, Django REST Framework, PostgreSQL, and JWT Authentication**.
 
@@ -10,44 +6,44 @@ It provides a secure RESTful API to manage **patients, doctors, and their mappin
 
 ---
 
-## 📌 Features
+## Features
 
-✅ **User Authentication & Authorization**
+ **User Authentication & Authorization**
 
 * Register new users with email & password
 * JWT-based authentication (`djangorestframework-simplejwt`)
 
-✅ **Patient Management**
+ **Patient Management**
 
 * Create, update, delete, and retrieve patient records
 * Patients are linked to the authenticated user who created them
 
-✅ **Doctor Management**
+ **Doctor Management**
 
 * Create, update, delete, and retrieve doctor records
 
-✅ **Patient-Doctor Mapping**
+ **Patient-Doctor Mapping**
 
 * Assign doctors to patients
 * Retrieve all doctors for a specific patient
 * Remove doctor-patient mapping
 
-✅ **Secure APIs**
+ **Secure APIs**
 
 * Protected endpoints require a JWT `access` token
 * Permissions restrict unauthorized access
 
-✅ **PostgreSQL Database**
+ **PostgreSQL Database**
 
 * Uses Django ORM with PostgreSQL for reliable storage
 
-✅ **Dockerized Setup**
+ **Dockerized Setup**
 
 * Easily run the application with **Docker + docker-compose**
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 healthcare_backend/
@@ -71,7 +67,7 @@ healthcare_backend/
 
 ---
 
-## ⚙️ Tech Stack
+##  Tech Stack
 
 * **Backend Framework:** Django 5.x + Django REST Framework
 * **Database:** PostgreSQL
@@ -81,18 +77,18 @@ healthcare_backend/
 
 ---
 
-## 🚀 Installation & Setup
+## Installation & Setup
 
-### ✅ 1. Clone the Repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/healthcare-backend.git
-cd healthcare-backend
+git clone https://github.com/anurag8773/Healthcare-Backend.git
+cd Healthcare-Backend
 ```
 
 ---
 
-### ✅ 2. Setup Environment Variables
+### 2. Setup Environment Variables
 
 Create a `.env` file with the following values:
 
@@ -108,7 +104,7 @@ POSTGRES_PORT=5432
 
 ---
 
-### ✅ 3. Run with Docker
+### 3. Run with Docker
 
 Make sure you have **Docker & docker-compose installed**.
 
@@ -119,12 +115,12 @@ docker-compose up --build -d
 ```
 
 This will:
-✅ Start PostgreSQL
-✅ Start Django app at `http://localhost:8000`
+ Start PostgreSQL
+ Start Django app at `http://localhost:8000`
 
 ---
 
-### ✅ 4. Run Migrations
+### 4. Run Migrations
 
 ```bash
 docker-compose exec web python manage.py migrate
@@ -132,7 +128,7 @@ docker-compose exec web python manage.py migrate
 
 ---
 
-### ✅ 5. Create Superuser
+### 5. Create Superuser
 
 ```bash
 docker-compose exec web python manage.py createsuperuser
@@ -146,65 +142,33 @@ http://localhost:8000/admin/
 
 ---
 
-## 🧪 API Testing
+## Postman Collection
 
-### ✅ Base URL
+You can easily test all APIs using the provided Postman collection.
 
-```
-http://localhost:8000/api/
-```
+- **[Postman Collection](https://documenter.getpostman.com/view/37271849/2sB34oBHEt)**  
+- **Base URL:** `http://localhost:8000/api/`
 
----
-
-### ✅ Auth APIs
-
-* **Register** → `POST /api/auth/register/`
-* **Login** → `POST /api/auth/login/` → returns JWT token
-
-> Use `Authorization: Bearer <access_token>` for all other APIs.
+**Steps to use:**
+1. Download the collection JSON file.
+2. Import it into Postman (File → Import).
+3. Set the base URL as `http://localhost:8000`.
+4. First run `Auth → Register` and `Auth → Login` to get JWT token.
+5. Use the token for all secured APIs.
 
 ---
 
-### ✅ Patient APIs
+##  Example API Flow
 
-* `POST /api/patients/` → Create patient
-* `GET /api/patients/` → List patients for logged-in user
-* `GET /api/patients/{id}/` → Get details of a patient
-* `PUT /api/patients/{id}/` → Update patient
-* `DELETE /api/patients/{id}/` → Delete patient
-
----
-
-### ✅ Doctor APIs
-
-* `POST /api/doctors/` → Create doctor
-* `GET /api/doctors/` → List doctors
-* `GET /api/doctors/{id}/` → Doctor details
-* `PUT /api/doctors/{id}/` → Update doctor
-* `DELETE /api/doctors/{id}/` → Delete doctor
+1️⃣ **Register** user → `/auth/register/`.
+2️⃣ **Login** → `/auth/login/` → get JWT token.
+3️⃣ **Create Patients & Doctors**.
+4️⃣ **Assign Doctor to Patient** → `/mappings/`.
+5️⃣ **Retrieve All Doctors for a Patient** → `/mappings/{patient_id}/`.
 
 ---
 
-### ✅ Mappings APIs
-
-* `POST /api/mappings/` → Assign doctor to patient
-* `GET /api/mappings/` → List all mappings
-* `GET /api/mappings/{patient_id}/` → List all doctors assigned to a patient
-* `DELETE /api/mappings/{mapping_id}/` → Remove a doctor-patient mapping
-
----
-
-## ✅ Example API Flow
-
-1️⃣ **Register** user → `/auth/register/`
-2️⃣ **Login** → `/auth/login/` → get JWT token
-3️⃣ **Create Patients & Doctors**
-4️⃣ **Assign Doctor to Patient** → `/mappings/`
-5️⃣ **Retrieve All Doctors for a Patient** → `/mappings/{patient_id}/`
-
----
-
-## 🔐 Authentication
+## Authentication
 
 Uses **JWT (JSON Web Token)**.
 
@@ -217,23 +181,7 @@ Authorization: Bearer <your_access_token>
 
 ---
 
-## ✅ Admin Panel
-
-Once superuser is created, access the admin panel at:
-
-```
-http://localhost:8000/admin/
-```
-
-Manage:
-✅ Users
-✅ Patients
-✅ Doctors
-✅ Patient-Doctor Mappings
-
----
-
-## 📌 Assumptions
+## Assumptions
 
 * Users are **healthcare staff/admins** managing patients & doctors
 * Patients belong to the **authenticated user who created them**
@@ -243,18 +191,16 @@ Manage:
 
 ---
 
-## 🔮 Future Scope
+## Future Scope
 
-* ✅ Role-based access control (e.g. Admin, Doctor, Staff)
-* ✅ Appointment scheduling
-* ✅ Medical history & prescriptions
-* ✅ Pagination & filtering for large datasets
-* ✅ API versioning for backward compatibility
-* ✅ Deploy to production with Gunicorn/Nginx
+*  Role-based access control (e.g. Admin, Doctor, Staff)
+*  Appointment scheduling
+*  Medical history & prescriptions
+*  Pagination & filtering for large datasets
 
 ---
 
-## 🐳 Quick Docker Commands
+## Quick Docker Commands
 
 * **Start Services:**
 
@@ -281,16 +227,10 @@ Manage:
   ```bash
   docker-compose down
   ```
-
 ---
 
-## 📝 License
+##  Author  
 
-MIT License © 2025
+**Anurag Kumar Maurya**   
 
----
-
-Would you like me to also:
-
-✅ Generate a **sample Postman Collection JSON** with all APIs pre-configured?
-✅ Or add **example request/response JSON** for each endpoint inside this README?
+  
