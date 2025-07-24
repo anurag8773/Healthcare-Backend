@@ -102,6 +102,10 @@ POSTGRES_HOST=db
 POSTGRES_PORT=5432
 ```
 
+Environment Setup:
+ Copy .env.example → .env
+ Update values as needed
+
 ---
 
 ### 3. Run with Docker
